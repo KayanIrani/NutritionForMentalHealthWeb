@@ -1,0 +1,28 @@
+1. Therapy Chatbot:
+	Foods helpful for mental health
+	Questions related to food, recommendations for food 
+	The bot could ask for ur today's diet
+	To give a pdf or a document for the diet plan
+	so the chatbot could recommend doctors near me, like psychologist ( optional if it's possible )
+	under a patient for a doc, the chatbot will a summary to the doctor.
+2. Diet Plan Recommender -> ( /lists )
+3. Basic info -> Article for foods boost mental health ( if blogs are feasible )
+4. Gamification, Soothing Music, a game for soothing.... animation and stuff... 
+
+
+Mapping:
+
+/ -> home
+
+/login
+/signup
+
+/chat **
+
+/lists
+
+/blogs -> create too....
+
+/helplines
+
+/meetDoc
