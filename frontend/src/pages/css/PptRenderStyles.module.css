@@ -1,0 +1,25 @@
+.centerBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.innerContent{
+    height: 95%;
+    width: 95%;
+    border: 1px solid black;
+    border-radius: 30px;
+    animation: glowCycle 12s infinite linear;
+}
+
+@keyframes glowCycle {
+    0%   { box-shadow: 0 0 12px 4px red; }
+    16%  { box-shadow: 0 0 12px 4px orange; }
+    33%  { box-shadow: 0 0 12px 4px yellow; }
+    50%  { box-shadow: 0 0 12px 4px green; }
+    66%  { box-shadow: 0 0 12px 4px blue; }
+    83%  { box-shadow: 0 0 12px 4px violet; }
+    100% { box-shadow: 0 0 12px 4px red; } 
+}

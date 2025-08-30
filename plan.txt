@@ -13,16 +13,13 @@
 Mapping:
 
 / -> home
+/chat **
+/lists
+/meetDoc
+/helplines
+/blogs -> create too....
 
+not needed for now:
 /login
 /signup
 
-/chat **
-
-/lists
-
-/blogs -> create too....
-
-/helplines
-
-/meetDoc

@@ -1,0 +1,4 @@
+1. Groq
+2. Vector Store: FAISS 
+3. Document 
+4. 
