@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-
+import Navbar from "./pages/Navbar.jsx";
 import Home from "./pages/Home.jsx"
 import HelpLine from "./pages/HelpLine.jsx";
 import MeetDoc from "./pages/MeetDoc.jsx";
@@ -9,6 +9,7 @@ import PptRender from "./pages/PptRender.jsx";
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/chat" element={<Chat/>}/>
