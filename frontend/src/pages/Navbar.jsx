@@ -1,15 +1,30 @@
-import React from 'react'
+import NavbarStyles from "./css/NavbarStyles.module.css";
 
 const Navbar = () => {
   return (
-    <div style={{display:"flex", justifyContent:"space-evenly"}}>
-        <a href="/">hello</a>
-        <a href="/chat">hello</a>
-        <a href="/ppt">hello</a>
-        <a href="/">hello</a>
-        <a href="/">hello</a>
-    </div>
-  )
-}
+    <nav id="navmenu" class={NavbarStyles.navmenu}>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="#">List</a>
+        </li>
+        <li>
+          <a href="/chat">Chat</a>
+        </li>
+        <li>
+          <a href="/ppt">Ppt</a>
+        </li>
+        <li>
+          <a href="/">HelpLines</a>
+        </li>
+        <li>
+          <a href="/">Blogs</a>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

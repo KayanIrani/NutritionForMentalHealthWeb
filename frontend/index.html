@@ -1,24 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/icon.png" />
+    <link rel="stylesheet" href="./src/pages/css/preloader.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nutrition Proj</title>
   </head>
   <style>
-    *{
+    * {
       margin: 0px;
       padding: 0px;
       box-sizing: border-box;
     }
-    #root{
+    #root {
       height: 100vh;
       width: 100vw;
+    }
+    body {
+      color: #fafafa;
+      background-color: #000000;
+      font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
     }
   </style>
   <body>
     <div id="root"></div>
+    <div id="preloader">
+      <div class="line"></div>
+    </div>
+    <script>
+      const preloader = document.querySelector("#preloader");
+      if (preloader) {
+        window.addEventListener("load", () => {
+          setTimeout(() => {
+            preloader.classList.add("loaded");
+          }, 1000);
+          setTimeout(() => {
+            preloader.remove();
+          }, 2000);
+        });
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
