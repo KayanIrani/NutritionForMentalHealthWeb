@@ -50,7 +50,6 @@
 
 .exploreBtn:active:after {
   background: transparent;
-
 }
 
 .exploreBtn:hover:before {
@@ -95,10 +94,8 @@
 }
 
 /* ==================================== */
-/* Nutrition Imp Section */
+/* Section Headings */
 /* ==================================== */
-
-/* Nutrition Imp Section heading */
 h2 {
   position: relative;
   padding: 0 0 6px 0;
@@ -121,10 +118,10 @@ h2 em {
   font-style: normal;
   font-weight: 600;
 }
-.nutrition h2 {
+.sectionHeading h2 {
   text-transform: capitalize;
 }
-.nutrition h2:before {
+.sectionHeading h2:before {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -134,7 +131,7 @@ h2 em {
   background-color: #4dcb64;
 }
 
-.nutrition h2 span {
+.sectionHeading h2 span {
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
@@ -144,3 +141,64 @@ h2 em {
   color: rgba(0, 0, 0, 0.4);
   padding-bottom: 10px;
 }
+
+/* ==================================== */
+/* End of Section Headings */
+/* ==================================== */
+
+/* ==================================== */
+/* Card */
+/* ==================================== */
+.card {
+  width: 250px;
+  height: 350px;
+  margin: 0 auto;
+  background-color: #2f9241;
+  border-radius: 8px;
+  z-index: 1;
+  color: #fafafa;
+}
+
+/* .tools {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+}
+
+.circle {
+  padding: 0 4px;
+}
+
+.red {
+  background-color: #ff605c;
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+}
+
+.yellow {
+  background-color: #ffbd44;
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+}
+
+.green {
+  background-color: #00ca4e;
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+} */
+
+/* ==================================== */
+/* End of Card */
+/* ==================================== */
