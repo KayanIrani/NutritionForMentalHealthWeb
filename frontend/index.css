@@ -1,0 +1,28 @@
+/* ==================================== */
+/* Custom Scrollbar */
+/* ==================================== */
+
+/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;                /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #111;            /* track background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4dcb64, #2f9241); /* green gradient */
+  border-radius: 8px;
+  border: 2px solid #111;      /* little spacing look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2f9241, #4dcb64); /* reverse on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;                      /* make it thinner */
+  scrollbar-color: #4dcb64 #111;              /* thumb color | track color */
+}
