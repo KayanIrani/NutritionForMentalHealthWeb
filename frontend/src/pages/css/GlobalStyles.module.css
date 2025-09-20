@@ -1,0 +1,74 @@
+/* Table container */
+.tableContainer {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #000000; /* Black background for the table container */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: #4dcb64; /* Green text */
+  margin-bottom: 20px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  table-layout: fixed;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px 2px rgba(87, 83, 83, 0.635);
+}
+
+/* Table cells */
+th, td {
+  padding: 20px;
+  text-align: left;
+  border-bottom: 1px solid #444; /* Dark border for contrast */
+}
+
+/* Table header */
+th {
+  background-color: #164B20 ; /* Green background */
+  color: #ffffff; /* White text */
+  font-weight: bold;
+}
+
+tr {
+    transition: transform .4s ease, background-color .5s ease, box-shadow 1s ease;
+    padding: 0px;
+}
+/* Row hover effect */
+tbody > tr:hover {
+  background-color: rgba(77, 203, 100, 0.2); 
+  cursor: pointer;
+  transform: scale(1.03);
+  box-shadow: 1px 0px 3px 2px rgba(108, 175, 110, 0.749);
+}
+
+/* Alternate row background for readability */
+/* Dark gray for alternating rows */
+/* tbody tr:nth-child(even) {
+  background-color: #222222; 
+} */
+
+/* Cell styling */
+td {
+  font-size: 14px;
+  color: #ffffff; /* White text in the cells */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+
+/* Handling small screens */
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+}

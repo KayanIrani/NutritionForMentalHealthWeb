@@ -1,0 +1,20 @@
+[
+  { "slNo": 1, "name": "Tele-Manas", "number": "14416", "purpose": "Mental health support" },
+  { "slNo": 2, "name": "Psycho-social, First-aid & counselling helpline", "number": "8448-8448-45", "purpose": "Mental health support" },
+  { "slNo": 3, "name": "KIRAN", "number": "1800-5990019", "purpose": "Mental health support & rehabilitation" },
+  { "slNo": 4, "name": "National Institute of Mental Health and Neurosciences (NIMHANS) Helpline", "number": "080-46110007", "purpose": "provides medical advice, counseling, and rehabilitation." },
+  { "slNo": 5, "name": "Vandrevala Foundation crisis intervention helpline", "number": "91 9999 666 555", "purpose": "Mental Health support , Counselling" },
+  { "slNo": 6, "name": "One Life", "number": "78930-78930", "purpose": "Suicide Prevention & Crisis support" },
+  { "slNo": 7, "name": "Jeevan Aastha Helpline, Suicide Prevention and Mental Health Counseling Helpline", "number": "1800 233 3330", "purpose": "Mental health support, suicide prevention" },
+  { "slNo": 8, "name": "Aasra", "number": "9820466728", "purpose": "NGO named Aasra provides emotional support & counselling" },
+  { "slNo": 9, "name": "Prana Lifeline", "number": "1800 121 2023040", "purpose": "Suicide Prevention & Crisis support provided by a counselling center in Coimbatore" },
+  { "slNo": 10, "name": "i CALL", "number": "022-25521111", "purpose": "TISS Helpline, Provides psycho scocial support" },
+  { "slNo": 11, "name": "Helpline by Lifeline", "number": "9088030303", "purpose": "Psycho social support" },
+  { "slNo": 12, "name": "Voice That Cares", "number": "8448-8448-45", "purpose": "Mental health support service" },
+  { "slNo": 13, "name": "Connecting Trust, Every Life Counts", "number": "9922004305", "purpose": "assistance with mental health concerns, crisis intervention" },
+  { "slNo": 14, "name": "Parivarthan Counselling Helpline", "number": "91 7676602602", "purpose": "Counselling" },
+  { "slNo": 15, "name": "Muktaa Mental health Helpline", "number": "788-788-9882", "purpose": "Mental health support" },
+  { "slNo": 16, "name": "Mann Talks", "number": "91 8686 139 139", "purpose": "Counselling support" },
+  { "slNo": 17, "name": "Helpline by Aastha", "number": "011 46625150 & 9560874098 (Whatsapp)", "purpose": "Cross- disability Helpline number by Aastha NGO - Delhi" },
+  { "slNo": 18, "name": "National Health Mission (NHM) Helpline","number": "104","purpose":"Health related assistance"}
+]
