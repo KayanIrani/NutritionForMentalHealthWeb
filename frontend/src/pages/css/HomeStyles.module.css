@@ -125,9 +125,9 @@ h2 em {
   font-style: normal;
   font-weight: 600;
 }
-.sectionHeading h2 {
+/* .sectionHeading h2 {
   text-transform: capitalize;
-}
+} */
 .sectionHeading h2:before {
   position: absolute;
   left: 0;

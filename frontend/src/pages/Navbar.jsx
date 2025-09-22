@@ -20,7 +20,7 @@ const Navbar = () => {
           <a href="/helplines">HelpLines</a>
         </li>
         <li>
-          <a href="/">Blogs</a>
+          <a href="/blog">Blogs</a>
         </li>
       </ul>
       <div style={{width: '100%',display: 'flex', flexDirection: 'column', alignItems: 'center'}}>

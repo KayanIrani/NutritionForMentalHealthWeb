@@ -6,6 +6,8 @@ import MeetDoc from "./pages/MeetDoc.jsx";
 import Chat from "./pages/Chat.jsx";
 import PptRender from "./pages/PptRender.jsx";
 import HomeStyles from './pages/css/HomeStyles.module.css';
+import Blog from "./pages/Blog.jsx";
+import Create from "./pages/Create.jsx";
 function App() {
   return (
     <div className={HomeStyles.mainContainer}>
@@ -16,6 +18,8 @@ function App() {
         <Route path="/meetdoc" element={<MeetDoc />} />
         <Route path="/helplines" element={<HelpLine />} />
         <Route path="/ppt" element={<PptRender />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/create" element={<Create />} />
       </Routes>
       <footer className="bg-dark text-center text-white py-3">
         <p className="mb-0">
