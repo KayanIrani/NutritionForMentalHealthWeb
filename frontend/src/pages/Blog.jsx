@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import HomeStyles from "./css/HomeStyles.module.css";
 import BlogStyles from "./css/BlogStyles.module.css";
-import BlogData from "./blogData.json";
+// import BlogData from "./blogData.json";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [BlogData,setBlogData] = useState([])
+  const loadBlogs = async () => {
+    const res = await fetch('/api/printBlogs')
+    const data = await res.json()
+    setBlogData(data.data)
+    // console.log(data)
+  }
+    
   const filteredBlogs = BlogData.filter(
     (blog) =>
       blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -12,14 +20,18 @@ const Blog = () => {
       blog.author.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  useEffect(()=>{
+    loadBlogs()
+  },[])
+
   const BigColumn_content = (blog) => (
     <div class={`${BlogStyles.postEntry} lg`}>
       <a href="">
         <img src="../../public/post-landscape-1.jpg" alt="" class="img-fluid" />
       </a>
       <div class={`${BlogStyles.postMeta}`}>
-        <span class="date">{blog.time_to_read}</span>{" "}
-        <span class="mx-1">•</span> <span>{blog.date_of_blog}</span>
+        <span class="date">{blog.timeToRead}</span>{" "}
+        <span class="mx-1">•</span> <span>{blog.blogDate}</span>
       </div>
       <h2>
         <a href="">{blog.title}</a>
@@ -42,8 +54,8 @@ const Blog = () => {
         <img src="../../public/post-landscape-1.jpg" alt="" class="img-fluid" />
       </a>
       <div class={`${BlogStyles.postMeta}`}>
-        <span class="date">{blog.time_to_read}</span>{" "}
-        <span class="mx-1">•</span> <span>{blog.date_of_blog}</span>
+        <span class="date">{blog.timeToRead}</span>{" "}
+        <span class="mx-1">•</span> <span>{blog.blogDate}</span>
       </div>
       <h2>
         <a href="">{blog.title}</a>
@@ -103,11 +115,14 @@ const Blog = () => {
         </div>
 
         <main className={BlogStyles.main}>
-          {filteredBlogs.map((blog, index) =>
+          {filteredBlogs.length!=0 ?
+          filteredBlogs.map((blog, index) =>
             index % 3 === 0
               ? BigColumn_content(blog)
               : SmallColumn_content(blog)
-          )}
+          ):BlogData.length!=0?<div style={{fontSize: '30px'}}>Search not found</div> :<div style={{fontSize: '30px'}}>Blogs are empty</div>}
+
+
         </main>
       </section>
     </div>
