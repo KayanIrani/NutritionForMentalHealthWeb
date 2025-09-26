@@ -1,6 +1,14 @@
+import fitz
+doc = fitz.open("Nutrition_Corpus.pdf")
 
-
-
+all_pages = []
+for page_num, page in enumerate(doc, start=1):
+    text = page.get_text("text")   # plain text extraction
+   #  text = page.get_text("blocks")   # If quality is not good with text
+    all_pages.append({
+        "page": page_num,
+        "text": text.strip()
+    })
 
 
 
