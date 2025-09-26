@@ -8,6 +8,7 @@ import PptRender from "./pages/PptRender.jsx";
 import HomeStyles from './pages/css/HomeStyles.module.css';
 import Blog from "./pages/Blog.jsx";
 import Create from "./pages/Create.jsx";
+import View from "./pages/ViewBlog.jsx";
 function App() {
   return (
     <div className={HomeStyles.mainContainer}>
@@ -20,12 +21,11 @@ function App() {
         <Route path="/ppt" element={<PptRender />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/create" element={<Create />} />
+        <Route path="/view-blog" element={<View />} />
       </Routes>
       <footer className="bg-dark text-center text-white py-3">
         <p className="mb-0">
           2025 - Mindful Nutrition {/* | About Us | Resources | Contact */}
-          <br />
-          <br />
         </p>
         <div>
         <p>Citations for Nutrition Research Paper</p>

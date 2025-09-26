@@ -126,6 +126,27 @@ async def get_all_blogs():
         }
     )
 
+@app.get('/api/Blogs/{id}')
+async def get_specific_blog(id:str):
+    try:
+        blog = blogs.find_one({"_id": ObjectId(id)})
+        blog['_id'] = str(blog['_id'])
+        return JSONResponse(
+            status_code=200,
+            content={
+                "data": blog
+                }
+            )
+
+    except:
+        return JSONResponse(
+            status_code=200,
+            content={
+                "data": "blog not found"
+                }
+            )
+        
+
 
 
 @app.patch('/api/editBlog')
