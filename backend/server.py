@@ -152,10 +152,7 @@ async def get_specific_blog(id:str):
 @app.patch('/api/editBlog')
 # Json
 # {'query':{'_id':'whtv'},'setter':{multiple or single updating jsons}}
-async def editBlog(body: dict = Body(...)):
-    if "_id" in body["query"]:
-        body["query"]["_id"] = ObjectId(body["query"]["_id"])
-
+async def editBlog(body):
     result = await blogs.update_one(body['query'],{'$set': body['setter']})
     if result.matched_count == 0:
         return JSONResponse(
