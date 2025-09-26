@@ -47,7 +47,7 @@ const Chat = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "69vh",
+        height: "69.7vh",
         backgroundColor: "#000",
         color: "white",
       }}

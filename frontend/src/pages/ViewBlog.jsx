@@ -2,21 +2,24 @@ import React from "react";
 import BlogStyles from "./css/BlogStyles.module.css";
 import HomeStyles from "./css/HomeStyles.module.css";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 
-const ViewBlog = ({blog}) => {
-  const [BlogData, setBlogData] = useState([]);
-  const params = new URLSearchParams(window.location.search);
-  const loadBlog = async () => {
-    const res = await fetch(`/api/Blogs/${params.get("id")}`);
-    const data = await res.json();
-    setBlogData(data.data);
-    console.log(data);
-  };
+const ViewBlog = () => {
+  const  {state: blog} = useLocation();
+  // console.log(blog);
+  // const [BlogData, setBlogData] = useState([]);
+  // const params = new URLSearchParams(window.location.search);
+  // const loadBlog = async () => {
+  //   const res = await fetch(`/api/Blogs/${params.get("id")}`);
+  //   const data = await res.json();
+  //   setBlogData(data.data);
+  //   console.log(data);
+  // };
 
-  useEffect(() => {
-    loadBlog();
-  }, []);
+  // useEffect(() => {
+  //   loadBlog();
+  // }, []);
   return (
     <div>
       <section className="text-white text-center py-5">
@@ -48,10 +51,10 @@ const ViewBlog = ({blog}) => {
       </section>
       <section className="container">
         <div className={`mb-3 ${HomeStyles.sectionHeading}`}>
-          <h2></h2>
+          <h2>{blog.title}</h2>
         </div>
         <p className="lead mt-3">
-
+          {blog.content}
         </p>
 
         {/* <main></main> */}

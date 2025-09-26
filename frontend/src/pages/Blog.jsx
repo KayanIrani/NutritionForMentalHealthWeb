@@ -2,6 +2,8 @@ import React, { useState,useEffect } from "react";
 import HomeStyles from "./css/HomeStyles.module.css";
 import BlogStyles from "./css/BlogStyles.module.css";
 // import BlogData from "./blogData.json";
+import { Link } from "react-router-dom";
+
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -34,7 +36,8 @@ const Blog = () => {
         <span class="mx-1">•</span> <span>{blog.blogDate}</span>
       </div>
       <h2>
-        <a href={`/view-blog/?id=${blog._id}`}>{blog.title}</a>
+        {/* <a href={`/view-blog/?id=${blog._id}`}>{blog.title}</a> */}
+        <Link to={'/view-blog'} state={blog}>{blog.title}</Link>
       </h2>
       <p class="mb-4 d-block fs-6">{blog.content}</p>
 
@@ -58,7 +61,9 @@ const Blog = () => {
         <span class="mx-1">•</span> <span>{blog.blogDate}</span>
       </div>
       <h2>
-        <a href="/view-blog">{blog.title}</a>
+        {/* <a href="/view-blog">{blog.title}</a> */}
+        <Link to={'/view-blog'} state={blog}>{blog.title}</Link>
+
       </h2>
       <p class="mb-4 d-block fs-6">{blog.content}</p>
 
