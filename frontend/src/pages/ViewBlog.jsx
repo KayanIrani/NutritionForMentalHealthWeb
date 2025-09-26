@@ -56,7 +56,7 @@ const ViewBlog = () => {
       console.log(data.data); // "Blog updated successfully!"
       onClose();
       // Optionally refresh or update state
-      window.location.reload(); 
+      window.location.href = "/blog"; 
     } else {
       console.error(data.data); // "Blog Not Found" or error
     }
@@ -80,13 +80,9 @@ const ViewBlog = () => {
             <button onClick={onOpen} className={`btn btn-lg ${BlogStyles.blogBtn}`}>
               Edit
             </button>
-            <a
-              href="/blog" // change later
-              target="_blank"
-              className={`btn btn-lg ${BlogStyles.blogBtn}`}
-            >
+            <button className={`btn btn-lg ${BlogStyles.blogBtn}`}>
               Delete
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -104,7 +100,7 @@ const ViewBlog = () => {
     {/* Popup */}
       <Modal isOpen={isOpen} onClose={onClose} size="lg">
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg="#111">
           <ModalHeader>Edit Blog</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
