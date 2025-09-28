@@ -13,6 +13,8 @@ function App() {
   return (
     <div className={HomeStyles.mainContainer}>
       <Navbar />
+      <div style={{flex:1}}>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/chat" element={<Chat />} />
@@ -23,6 +25,7 @@ function App() {
         <Route path="/create" element={<Create />} />
         <Route path="/view-blog" element={<ViewBlog/>} />
       </Routes>
+      </div>
       <footer className="bg-dark text-center text-white py-3">
         <p className="mb-0">
           2025 - Mindful Nutrition {/* | About Us | Resources | Contact */}

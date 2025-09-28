@@ -14,7 +14,7 @@ const Create = () => {
   )
   const addBlog = async () =>{
     console.log(newBlog)
-    const res = await fetch('/api/getBlogs',{
+    const res = await fetch('/api/createBlog',{
       method: 'POST',
       headers:{
         "Content-Type": "application/json"

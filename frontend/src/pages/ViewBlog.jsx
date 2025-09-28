@@ -3,6 +3,9 @@ import BlogStyles from "./css/BlogStyles.module.css";
 import HomeStyles from "./css/HomeStyles.module.css";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+
 import { ChakraProvider,Input,Textarea,Button ,extendTheme} from '@chakra-ui/react'
 import {
   Modal,
@@ -17,31 +20,23 @@ import {
 
 const ViewBlog = () => {
   const  {state: blog} = useLocation();
+  const goBack = () => {
+    window.location.href = "/blog"
+  }
   const customTheme = extendTheme({
-  styles: {
-    global: {
-      "html, body": {
-        bg: "black",
-        color: "#4dcb64",
-      },
-    },
-  },
-  colors: {
-    brand: {
-      500: "#4dcb64", // you can use colorScheme="brand"
-    },
-  },
-});
+    styles: {global: {"html, body": {bg: "black",color: "#4dcb64"}}},
+    colors: {brand: {500: "#4dcb64"}}
+  });
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // local state for editing
-  const [title, setTitle] = useState(blog.title);
-  const [content, setContent] = useState(blog.content);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const handleSave = async () => {
   const updatedBlog = {
-    query: { _id: blog._id }, // identify the blog
-    setter: { title, content } // fields being updated
+    query: { _id: blog._id },
+    setter: { title, content } 
   };
 
   try {
@@ -55,7 +50,6 @@ const ViewBlog = () => {
     if (res.ok) {
       console.log(data.data); // "Blog updated successfully!"
       onClose();
-      // Optionally refresh or update state
       window.location.href = "/blog"; 
     } else {
       console.error(data.data); // "Blog Not Found" or error
@@ -67,55 +61,73 @@ const ViewBlog = () => {
   return (
     <ChakraProvider theme={customTheme}>
     <div>
-      <section className="text-white text-center py-5">
-        <div className="container">
-          <h1 className={`display-5 ${HomeStyles.heroHeading}`}>
-            Review Your Content
-          </h1>
-          <p className="lead mb-3">
-            Click the "Edit Button" to edit your content. Click the "Delete
-            Button" to remove it.
-          </p>
-          <div className={BlogStyles.buttonContainer}>
+      <section className="py-5">
+        <div className="container" style={{width: "100%",display: "flex",justifyContent:'flex-end'}}>
             <button onClick={onOpen} className={`btn btn-lg ${BlogStyles.blogBtn}`}>
-              Edit
+              <FaEdit /> 
             </button>
             <button className={`btn btn-lg ${BlogStyles.blogBtn}`}>
-              Delete
+              <MdDelete/>
             </button>
+        </div>
+          <h2 style={{  textAlign: "center",color: "#4dcb64",marginBottom: "20px"}} className={`display-5 ${HomeStyles.heroHeading}`}>
+            {blog ===null? goBack(): blog.title}
+          </h2>
+      </section>
+  <section className="container py-4">
+    {/* Blog Meta Info */}
+    <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
+      <div>
+        <div className={`d-flex align-items-center ${BlogStyles.author}`}>
+          <span style={{color:"white"}}>By</span>
+          <div className={`${BlogStyles.photo}`}>
+            <img src="person-1.jpg" alt="pfp" className="img-fluid" />
+          </div>
+          <div className={`${BlogStyles.name}`}>
+            <h3 className="m-0 p-0">{blog.author}</h3>
           </div>
         </div>
-      </section>
-      <section className="container">
-        <div className={`mb-3 ${HomeStyles.sectionHeading}`}>
-          <h2>{blog.title}</h2>
-        </div>
-        <p className="lead mt-3">
-          {blog.content}
-        </p>
+        
+        <small className="text-secondary">
+          {blog?.timeToRead} min read
+        </small>
+      </div>
+    </div>
 
-        {/* <main></main> */}
-      </section>
+    {/* Blog Content */}
+    <article 
+      className="lead text-light" 
+      style={{ lineHeight: "1.8", textAlign: "justify",padding: "10px 50px" }}
+    >
+      {blog?.content}
+      
+    </article>
+  </section>
+
     </div>
     {/* Popup */}
-      <Modal isOpen={isOpen} onClose={onClose} size="lg">
-        <ModalOverlay />
+      <Modal isOpen={isOpen} onClose={onClose} size="xl">
+        <ModalOverlay backdropFilter='blur(4px)' />
         <ModalContent bg="#111">
-          <ModalHeader>Edit Blog</ModalHeader>
+          <ModalHeader style={{color:'white'}}>Edit Blog</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody >
+            <div style={{display: "flex",flexDirection: 'column' ,height: '60vh'}}>
             <Input
               placeholder="Title"
               mb={3}
-              value={title}
+              value={blog.title}
               onChange={(e) => setTitle(e.target.value)}
-            />
+              />
             <Textarea
               placeholder="Content"
-              value={content}
+              value={blog.content}
+              style={{flex:1}}
               onChange={(e) => setContent(e.target.value)}
               rows={6}
-            />
+              className={BlogStyles.modalBorder}
+              />
+              </div>
           </ModalBody>
 
           <ModalFooter>

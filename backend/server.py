@@ -70,7 +70,7 @@ def chatResponse(body:Ques):
 
 
 # Blogs
-@app.post('/api/getBlogs')
+@app.post('/api/createBlog')
 async def getBlog(body:Blogs):
 
 

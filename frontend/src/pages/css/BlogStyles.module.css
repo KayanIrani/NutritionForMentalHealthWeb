@@ -189,3 +189,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+.modalBorder{
+  border-color: initial;
+}
+.modalBorder:focus{
+  border-color: green;
+}

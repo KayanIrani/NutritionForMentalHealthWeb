@@ -27,52 +27,52 @@ const Blog = () => {
   },[])
 
   const BigColumn_content = (blog) => (
-    <div key={blog._id} class={`${BlogStyles.postEntry} lg`}>
+    <div key={blog._id} className={`${BlogStyles.postEntry} lg`}>
       <a href="">
-        <img src="post-landscape-1.jpg" alt="" class="img-fluid" />
+        <img src="post-landscape-1.jpg" alt="" className="img-fluid" />
       </a>
-      <div class={`${BlogStyles.postMeta}`}>
-        <span class="date">{blog.timeToRead}</span>{" "}
-        <span class="mx-1">•</span> <span>{blog.blogDate}</span>
+      <div className={`${BlogStyles.postMeta}`}>
+        <span className="date">{blog.timeToRead}</span>{" "}
+        <span className="mx-1">•</span> <span>{blog.blogDate}</span>
       </div>
       <h2>
         {/* <a href={`/view-blog/?id=${blog._id}`}>{blog.title}</a> */}
         <Link to={'/view-blog'} state={blog}>{blog.title}</Link>
       </h2>
-      <p class="mb-4 d-block fs-6">{blog.content}</p>
+      <p className="mb-4 d-block fs-6" style={{textAlign:'justify'}}>{blog.content}</p>
 
-      <div class={`d-flex align-items-center ${BlogStyles.author}`}>
-        <div class={`${BlogStyles.photo}`}>
-          <img src="../../public/person-1.jpg" alt="pfp" class="img-fluid" />
+      <div className={`d-flex align-items-center ${BlogStyles.author}`}>
+        <div className={`${BlogStyles.photo}`}>
+          <img src="person-1.jpg" alt="pfp" className="img-fluid" />
         </div>
-        <div class={`${BlogStyles.name}`}>
-          <h3 class="m-0 p-0">{blog.author}</h3>
+        <div className={`${BlogStyles.name}`}>
+          <h3 className="m-0 p-0">{blog.author}</h3>
         </div>
       </div>
     </div>
   );
   const SmallColumn_content = (blog) => (
-    <div key={blog.id} class={`${BlogStyles.postEntry}`}>
+    <div key={blog._id} className={`${BlogStyles.postEntry}`}>
       <a href="">
-        <img src="../../public/post-landscape-1.jpg" alt="" class="img-fluid" />
+        <img src="post-landscape-1.jpg" alt="" className="img-fluid" />
       </a>
-      <div class={`${BlogStyles.postMeta}`}>
-        <span class="date">{blog.timeToRead}</span>{" "}
-        <span class="mx-1">•</span> <span>{blog.blogDate}</span>
+      <div className={`${BlogStyles.postMeta}`}>
+        <span className="date">{blog.timeToRead}</span>{" "}
+        <span className="mx-1">•</span> <span>{blog.blogDate}</span>
       </div>
       <h2>
         {/* <a href="/view-blog">{blog.title}</a> */}
         <Link to={'/view-blog'} state={blog}>{blog.title}</Link>
 
       </h2>
-      <p class="mb-4 d-block fs-6">{blog.content}</p>
+      <p className="mb-4 d-block fs-6" style={{textAlign:'justify'}}>{blog.content}</p>
 
-      <div class={`d-flex align-items-center ${BlogStyles.author}`}>
-        <div class={`${BlogStyles.photo}`}>
-          <img src="../../public/person-1.jpg" alt="pfp" class="img-fluid" />
+      <div className={`d-flex align-items-center ${BlogStyles.author}`}>
+        <div className={`${BlogStyles.photo}`}>
+          <img src="person-1.jpg" alt="pfp" className="img-fluid" />
         </div>
-        <div class={`${BlogStyles.name}`}>
-          <h3 class="m-0 p-0">{blog.author}</h3>
+        <div className={`${BlogStyles.name}`}>
+          <h3 className="m-0 p-0">{blog.author}</h3>
         </div>
       </div>
     </div>

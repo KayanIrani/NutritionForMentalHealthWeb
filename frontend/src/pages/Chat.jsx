@@ -74,6 +74,7 @@ const Chat = () => {
               margin: "7px 0",
               maxWidth: "70%",
               wordWrap: "break-word",
+              fontSize: '20px',
             }}
           >
             {msg.text}
