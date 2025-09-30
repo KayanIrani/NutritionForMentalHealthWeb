@@ -18,6 +18,7 @@ class MinimalEmbedding:
             model_name,
             export=True  # Auto-converts to ONNX if needed
         )
+        self.model.save_pretrained(save_directory="./saves")
     
     def encode(self, text):
         """Encode text to embedding vector"""

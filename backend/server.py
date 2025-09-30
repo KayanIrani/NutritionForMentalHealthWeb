@@ -5,6 +5,8 @@ from pymongo import AsyncMongoClient
 from bson import ObjectId
 import os
 from dotenv import load_dotenv
+import requests
+
 load_dotenv()
 
 app = FastAPI(debug=True)
@@ -58,9 +60,11 @@ def index():
 def chatResponse(body:Ques):
     if body.question.strip() != '':
         # LLM RAG code here 
+        res = requests.post('https://kayanirani-chatbotrag.hf.space/chat',json={'question':body.question})
+        data = res.json()
         return JSONResponse(
             status_code=200,
-            content={"success":True,"data":f"The answer to your question is {body.question}"}
+            content={"success":True,"data":data['data']}
         )
     else:
         return JSONResponse(

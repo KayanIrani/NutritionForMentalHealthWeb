@@ -1,46 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import HomeStyles from "./css/HomeStyles.module.css";
 
 const Chat = () => {
   const [ques, setQues] = useState("");
   const [ans, setAns] = useState("");
   const [ansColor, setAnsColor] = useState("green");
-  const [messages, setMessages] = useState([]); // store chat history
+  const [messages, setMessages] = useState([]);
+  const chatContainerRef = useRef(null); // <-- ref for scrolling
 
   const handleQues = async () => {
     if (!ques.trim()) return;
 
-    // Add user message first
     setMessages((prev) => [...prev, { sender: "user", text: ques }]);
 
     const res = await fetch("/api/chat", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        question: ques,
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: ques }),
     });
 
     const data = await res.json();
-    if (data.success) {
-      setAnsColor("green");
-      setAns(data.data);
-      setMessages((prev) => [
-        ...prev,
-        { sender: "bot", text: data.data, color: "green" },
-      ]);
-    } else {
-      setAnsColor("red");
-      setAns(data.data);
-      setMessages((prev) => [
-        ...prev,
-        { sender: "bot", text: data.data, color: "red" },
-      ]);
-    }
+    const color = data.success ? "green" : "red";
 
-    setQues(""); // clear input after sending
+    setMessages((prev) => [
+      ...prev,
+      { sender: "bot", text: data.data, color },
+    ]);
+
+    setQues("");
   };
+
+  // Auto-scroll to bottom whenever messages update
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   return (
     <div
@@ -54,6 +49,7 @@ const Chat = () => {
     >
       {/* Chat area */}
       <div
+        ref={chatContainerRef} // <-- attach ref here
         style={{
           flex: 1,
           overflowY: "auto",
@@ -74,10 +70,19 @@ const Chat = () => {
               margin: "7px 0",
               maxWidth: "70%",
               wordWrap: "break-word",
-              fontSize: '20px',
+              fontSize: "20px",
             }}
           >
-            {msg.text}
+            {msg.sender === "user" ? (
+              msg.text
+            ) : (
+              <span
+                className={HomeStyles.typewriter}
+                style={{ "--nchars": msg.text.length }}
+              >
+                {msg.text}
+              </span>
+            )}
           </div>
         ))}
       </div>
