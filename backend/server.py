@@ -151,9 +151,9 @@ async def get_specific_blog(id:str):
 
 @app.patch('/api/editBlog')
 # Json
-# {'query':{'_id':'whtv'},'setter':{multiple or single updating jsons}}
-async def editBlog(body):
-    result = await blogs.update_one(body['query'],{'$set': body['setter']})
+# {_id':'whtv','setter':{multiple or single updating jsons}}
+async def editBlog(body:dict):
+    result = await blogs.update_one({'_id':ObjectId(body['_id'])},{'$set': body['setter']})
     if result.matched_count == 0:
         return JSONResponse(
             status_code=400,
@@ -171,8 +171,8 @@ async def editBlog(body):
 
 
 @app.delete('/api/deleteBlog')
-async def deleteBlog(body):
-    result = await blogs.delete_one(body)
+async def deleteBlog(body:dict):
+    result = await blogs.delete_one({'_id':ObjectId(body['_id'])})
     if result.deleted_count>0:
         return JSONResponse(
             status_code=200,
@@ -184,7 +184,7 @@ async def deleteBlog(body):
         return JSONResponse(
             status_code=400,
             content={
-                "data": "Blog was not found or deleted!"
+                "data": "Blog was not found or was not deleted!"
             }
         )
 

@@ -12,7 +12,7 @@ const Blog = () => {
     const res = await fetch('/api/printBlogs')
     const data = await res.json()
     setBlogData(data.data)
-    console.log(data)
+    // console.log(data)
   }
     
   const filteredBlogs = BlogData.filter(
@@ -22,17 +22,17 @@ const Blog = () => {
       blog.author.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  useEffect(()=>{
-    loadBlogs()
-  },[])
+useEffect(() => {
+  loadBlogs();
+}, []);
 
   const BigColumn_content = (blog) => (
-    <div key={blog._id} className={`${BlogStyles.postEntry} lg`}>
+    <div key={blog._id}  className={`${BlogStyles.postEntry} lg ${BlogStyles.blogBorder}`}>
       <a href="">
         <img src="post-landscape-1.jpg" alt="" className="img-fluid" />
       </a>
       <div className={`${BlogStyles.postMeta}`}>
-        <span className="date">{blog.timeToRead}</span>{" "}
+        <span className="date">{blog.timeToRead}</span>{" min "}
         <span className="mx-1">•</span> <span>{blog.blogDate}</span>
       </div>
       <h2>
@@ -40,7 +40,6 @@ const Blog = () => {
         <Link to={'/view-blog'} state={blog}>{blog.title}</Link>
       </h2>
       <p className="mb-4 d-block fs-6" style={{textAlign:'justify'}}>{blog.content}</p>
-
       <div className={`d-flex align-items-center ${BlogStyles.author}`}>
         <div className={`${BlogStyles.photo}`}>
           <img src="person-1.jpg" alt="pfp" className="img-fluid" />
@@ -52,12 +51,12 @@ const Blog = () => {
     </div>
   );
   const SmallColumn_content = (blog) => (
-    <div key={blog._id} className={`${BlogStyles.postEntry}`}>
+    <div key={blog._id} className={`${BlogStyles.postEntry}  ${BlogStyles.blogBorder}`}>
       <a href="">
         <img src="post-landscape-1.jpg" alt="" className="img-fluid" />
       </a>
       <div className={`${BlogStyles.postMeta}`}>
-        <span className="date">{blog.timeToRead}</span>{" "}
+        <span className="date">{blog.timeToRead}</span>{" min "}
         <span className="mx-1">•</span> <span>{blog.blogDate}</span>
       </div>
       <h2>
@@ -89,7 +88,7 @@ const Blog = () => {
             your mental wellbeing.
           </p>
           <div className={BlogStyles.buttonContainer}>
-            <a href="/create" target="_blank" className={`btn btn-lg ${BlogStyles.blogBtn}`}>
+            <a href="/create" className={`btn btn-lg ${BlogStyles.blogBtn}`}>
               Create
             </a>
             <a
@@ -125,7 +124,22 @@ const Blog = () => {
             index % 3 === 0
               ? BigColumn_content(blog)
               : SmallColumn_content(blog)
-          ):BlogData.length!=0?<div style={{fontSize: '30px'}}>Search not found</div> :<div style={{fontSize: '30px'}}>Blogs are empty</div>}
+          ):BlogData.length!=0?
+          // <div style={{fontSize: '30px'}}>Search not found</div> :<div style={{fontSize: '30px'}}>Blogs are empty</div>
+            (
+              <div className={BlogStyles.emptyState}>
+                <span>🔍</span>
+                <p>No results found for your search.</p>
+                <p>Try another keyword!</p>
+              </div>
+            ) : (
+              <div className={BlogStyles.emptyState}>
+                <span>📭</span>
+                <p>No blogs available yet.</p>
+                <a href="/create">Be the first to write one!</a>
+              </div>
+            )
+          }
 
 
         </main>

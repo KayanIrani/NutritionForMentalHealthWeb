@@ -1,56 +1,129 @@
 .navmenu {
-  font: "Inter", sans-serif;
-  color: rgba(255, 255, 255, 0.5);
+  font-family: "Inter", sans-serif;
   background-color: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
   padding: 0;
-  margin: 0;
 }
 
-.navmenu ul {
+/* 🔘 Hamburger button */
+/* .hamburger {
+  display: none; 
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 15px 20px;
+} */
+
+/* Hamburger container */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 30; /* keeps it above the menu */
+}
+
+/* Each bar */
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  margin: 5px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+}
+
+
+/* Menu (desktop by default) */
+.menu {
   margin: 0;
   padding: 0;
   display: flex;
   list-style: none;
   align-items: center;
   justify-content: center;
+  transition: max-height 0.3s ease;
 }
 
-.navmenu li {
+.menu li {
   position: relative;
 }
 
-
-.navmenu a,
-.navmenu a:focus {
-  color:  rgba(255, 255, 255, 0.5);
+.menu a {
+  color: rgba(255, 255, 255, 0.5);
   padding: 20px 25px;
   font-size: 16px;
-  font-family: "Inter", sans-serif;
   font-weight: 300;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  white-space: nowrap;
-  transition: 0.3s;
+  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-decoration: none;
-}
-
-.navmenu a i,
-.navmenu a:focus i {
-  font-size: 14px;
-  line-height: 0;
-  margin-left: 5px;
   transition: 0.3s;
+  display: block;
 }
 
-.navmenu li:last-child a {
-  padding-right: 0;
-}
-
-.navmenu li:hover > a,
-.navmenu .active,
-.navmenu .active:focus {
+.menu a:hover,
+.menu .active {
   color: #4DCB64;
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.divider div {
+  height: 1px;
+  width: 80%;
+  border: 1px solid gray;
+}
+
+/* ✅ Mobile styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* show button */
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    background: #000;
+    overflow: hidden;
+    max-height: 0; /* collapsed by default */
+    width: 100%;
+  }
+
+  .menu.open {
+    max-height: 500px; /* expands when open */
+  }
+
+  .menu a {
+    padding: 15px 20px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .divider {
+    display: none; /* hide line in mobile */
+  }
 }

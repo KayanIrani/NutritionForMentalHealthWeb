@@ -13,7 +13,7 @@ function App() {
   return (
     <div className={HomeStyles.mainContainer}>
       <Navbar />
-      <div style={{flex:1}}>
+      <div style={{paddingTop:'60px',flex:1}}>
 
       <Routes>
         <Route path="/" element={<Home />} />

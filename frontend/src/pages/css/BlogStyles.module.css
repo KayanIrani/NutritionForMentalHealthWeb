@@ -94,7 +94,7 @@
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border: 1px solid #ffffff;
-  border-radius: 4px;
+  border-radius: 14px;
   box-sizing: border-box;
   transition: border-color 0.3s, box-shadow 0.3s;
   background-color: #000;
@@ -116,7 +116,7 @@
 
 .main > div {
   padding: 1rem;
-  border-right: 1px solid gray; /* vertical divider between columns */
+  border-right: 1px solid rgba(128, 128, 128, 0.562); /* vertical divider between columns */
 }
 
 .main > div:nth-child(3n) {
@@ -196,4 +196,52 @@
 }
 .modalBorder:focus{
   border-color: green;
+}
+
+.blogBorder{
+  border: 1px solid transparent;
+  transition: all 0.75s ease;
+}
+
+.blogBorder:hover{
+  border-color: white;
+  border-radius: 30px;
+  transform: translateY(-12px);
+  box-shadow: 2px 7px 20px 3px rgba(128, 128, 128, 0.5);
+
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #aaa;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.emptyState span {
+  display: block;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.emptyState p {
+  margin: 0.5rem 0;
+}
+
+.emptyState a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: #4dcb64;
+  color: #000;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.emptyState a:hover {
+  background: #3aa750;
+  color: #fff;
 }
