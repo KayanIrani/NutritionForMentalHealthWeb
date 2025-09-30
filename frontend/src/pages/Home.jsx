@@ -21,31 +21,31 @@ const Home = () => {
       "Magnesium helps reduces stress and anxiety, supports learning and memory",
   };
 
-const featured_foods = {
-  "Mood-Boosting Foods":
-    "Leafy greens, berries, and nuts are rich in vitamins, antioxidants, and healthy fats that help support serotonin and balance mood.",
+  const featured_foods = {
+    "Mood-Boosting Foods":
+      "Leafy greens, berries, and nuts are rich in vitamins, antioxidants, and healthy fats that help support serotonin and balance mood.",
 
-  "Focus & Memory":
-    "Fatty fish like salmon and sardines, walnuts, flaxseeds, and dark chocolate provide omega-3s and flavonoids that sharpen focus and memory.",
+    "Focus & Memory":
+      "Fatty fish like salmon and sardines, walnuts, flaxseeds, and dark chocolate provide omega-3s and flavonoids that sharpen focus and memory.",
 
-  "Stress & Anxiety-Calming":
-    "Green tea, chamomile, pumpkin seeds, and magnesium-rich spinach can ease stress and calm the nervous system.",
+    "Stress & Anxiety-Calming":
+      "Green tea, chamomile, pumpkin seeds, and magnesium-rich spinach can ease stress and calm the nervous system.",
 
-  "Sleep-Supporting":
-    "Kiwi, tart cherries, warm milk or yogurt, oats, and almonds contain melatonin, tryptophan, and minerals that promote restful sleep.",
+    "Sleep-Supporting":
+      "Kiwi, tart cherries, warm milk or yogurt, oats, and almonds contain melatonin, tryptophan, and minerals that promote restful sleep.",
 
-  "Gut-Brain Support":
-    "Yogurt with live cultures, kefir, sauerkraut, kimchi, and miso supply probiotics that strengthen gut health and support the brain–gut connection.",
+    "Gut-Brain Support":
+      "Yogurt with live cultures, kefir, sauerkraut, kimchi, and miso supply probiotics that strengthen gut health and support the brain–gut connection.",
 
-  "Steady Energy (No Crashes)":
-    "Oats, quinoa, sweet potatoes, lentils, and chickpeas release energy slowly, keeping blood sugar stable and energy steady.",
+    "Steady Energy (No Crashes)":
+      "Oats, quinoa, sweet potatoes, lentils, and chickpeas release energy slowly, keeping blood sugar stable and energy steady.",
 
-  "Anti-Inflammatory":
-    "Turmeric with black pepper, olive oil, tomatoes, and berries are powerful anti-inflammatory foods that protect cells and reduce chronic inflammation.",
+    "Anti-Inflammatory":
+      "Turmeric with black pepper, olive oil, tomatoes, and berries are powerful anti-inflammatory foods that protect cells and reduce chronic inflammation.",
 
-  "Hydration & Electrolytes":
-    "Water, coconut water, oranges, and bananas restore hydration and electrolytes to keep the body balanced and energized."
-};
+    "Hydration & Electrolytes":
+      "Water, coconut water, oranges, and bananas restore hydration and electrolytes to keep the body balanced and energized.",
+  };
 
   return (
     <div>
@@ -59,9 +59,16 @@ const featured_foods = {
             Discover how nutrition can boost mood, reduce stress, and improve
             your mental well-being.
           </p>
-          <a href="#" className={`btn btn-lg ${HomeStyles.exploreBtn}`}>
+          <button
+            onClick={() => {
+              const query = encodeURIComponent("Foods for Mental Health");
+              const url = `https://www.google.com/search?q=${query}`;
+              window.open(url, "_blank"); // open in a new tab
+            }}
+            className={`btn btn-lg ${HomeStyles.exploreBtn}`}
+          >
             Explore Foods for Mental Health
-          </a>
+          </button>
         </div>
       </section>
 
@@ -161,8 +168,28 @@ const featured_foods = {
         </div>
       </section>
 
+      <section className="py-5">
+        <div className="container text-start">
+          <div className={`${HomeStyles.sectionHeading} mb-4`}>
+            <h2>Blogs</h2>
+          </div>
+          <p>
+            Discover fresh insights, practical tips, and inspiring stories on
+            how nutrition shapes mental well-being. From science-backed food
+            guides to everyday lifestyle hacks, our blogs bring you closer to a
+            healthier mind and body. 👉 <i>Curious to learn more?</i>
+          </p>
+          <a
+            href="/blog"
+            className={`btn btn-lg mt-auto ${HomeStyles.exploreBtn}`}
+          >
+            Read Our Blogs
+          </a>
+        </div>
+      </section>
+
       {/* Community */}
-      <section  className="py-5">
+      <section className="py-5">
         <div className="container text-start">
           <div className={`${HomeStyles.sectionHeading} mb-4`}>
             <h2>Join Our Community</h2>

@@ -65,7 +65,7 @@ const Navbar = () => {
       <div style={{display:'flex',flexDirection: 'column'}}>
       <ul className={`${NavbarStyles.menu} ${isOpen ? NavbarStyles.open : ""}`}>
         <li><a href="/">Home</a></li>
-        <li><a href="mailto:mxrc0409@gmail.com">List</a></li>
+        <li><a href="#FF_id">List</a></li>
         <li><a href="/chat">Chat</a></li>
         <li><a href="/ppt">Ppt</a></li>
         <li><a href="/helplines">HelpLines</a></li>

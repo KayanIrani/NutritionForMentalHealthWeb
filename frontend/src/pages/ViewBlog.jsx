@@ -167,7 +167,7 @@ const ViewBlog = () => {
     <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
       <div>
         <div className={`d-flex align-items-center ${BlogStyles.author}`}>
-          <span style={{color:"white"}}>By</span>
+          {/* <span style={{color:"white"}}>By</span> */}
           <div className={`${BlogStyles.photo}`}>
             <img src="person-1.jpg" alt="pfp" className="img-fluid" />
           </div>
@@ -176,7 +176,7 @@ const ViewBlog = () => {
           </div>
         </div>
         
-        <small className="text-secondary">
+        <small className="mx-2 px-2 text-secondary">
           {blog?.timeToRead} min read
         </small>
       </div>
