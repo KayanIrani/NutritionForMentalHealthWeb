@@ -40,8 +40,16 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav id="navmenu" className={NavbarStyles.navmenu}>
+    <div id="navmenu" style={{display:'flex'}}  className={NavbarStyles.navmenu}>
       {/* Hamburger button */}
+      <div className={NavbarStyles.brand} style={{flex:1}}>
+        <a href="#" style={{textDecoration: 'none'}}>
+          
+        <img src={'icon.png'} alt="Mindful Nutrition logo" />
+        <span>Mindful Nutrition</span>
+        </a>
+      </div>
+
       <button
         className={`${NavbarStyles.hamburger} ${isOpen ? NavbarStyles.open : ""}`}
         onClick={() => setIsOpen(!isOpen)}
@@ -53,11 +61,11 @@ const Navbar = () => {
         <span></span>
       </button>
 
-
       {/* Menu links */}
+      <div style={{display:'flex',flexDirection: 'column'}}>
       <ul className={`${NavbarStyles.menu} ${isOpen ? NavbarStyles.open : ""}`}>
         <li><a href="/">Home</a></li>
-        <li><a href="/">List</a></li>
+        <li><a href="mailto:mxrc0409@gmail.com">List</a></li>
         <li><a href="/chat">Chat</a></li>
         <li><a href="/ppt">Ppt</a></li>
         <li><a href="/helplines">HelpLines</a></li>
@@ -68,7 +76,12 @@ const Navbar = () => {
       <div className={NavbarStyles.divider}>
         <div></div>
       </div>
-    </nav>
+
+      </div>
+      <div style={{flex:1}}>
+          {/* In between Space Crazy Hack */}
+      </div>
+    </div>
   );
 };
 

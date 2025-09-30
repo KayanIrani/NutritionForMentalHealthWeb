@@ -9,6 +9,24 @@
   padding: 0;
 }
 
+.brand {
+  display: flex;
+  /* align-items: center; */
+  gap: 10px;
+}
+
+.brand img {
+  height: 64px; /* adjust size of logo */
+  width: auto;
+}
+
+.brand span {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 /* 🔘 Hamburger button */
 /* .hamburger {
   display: none; 
@@ -62,7 +80,7 @@
   list-style: none;
   align-items: center;
   justify-content: center;
-  transition: max-height 0.3s ease;
+  transition: max-height 1s ease;
 }
 
 .menu li {

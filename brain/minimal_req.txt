@@ -1,0 +1,9 @@
+faiss-cpu
+python-dotenv
+numpy
+optimum
+onnxruntime
+onnx
+optimum[onnxruntime]
+groq
+packaging

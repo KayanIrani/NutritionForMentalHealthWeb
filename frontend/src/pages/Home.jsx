@@ -21,21 +21,31 @@ const Home = () => {
       "Magnesium helps reduces stress and anxiety, supports learning and memory",
   };
 
-  const featured_foods = {
-    "Mood-Boosting Foods": "Leafy greens Berries Nuts",
-    "Focus & Memory":
-      "Fatty fish (salmon, sardines) Walnuts Flaxseeds Dark chocolate",
-    "Stress & Anxiety-Calming":
-      "Green tea Chamomile Pumpkin seeds Spinach (magnesium-rich)",
-    "Sleep-Supporting": "Kiwi Tart cherry Warm milk or yogurt Oats Almonds",
-    "Gut-Brain Support":
-      "Yogurt with live cultures Kefir Sauerkraut Kimchi Miso Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere maxime similique eos. Qui iste recusandae reiciendis rerum cumque dolores odit. Voluptatum quas voluptatem esse eligendi voluptatibus provident iure odio molestiae.",
-    "Steady Energy (No Crashes)":
-      "Oats Quinoa Sweet potatoes Lentils Chickpeas",
-    "Anti-Inflammatory":
-      "Turmeric (with black pepper) Olive oil, Tomatoes Berries",
-    "Hydration & Electrolytes": "Water Coconut water Oranges Bananas",
-  };
+const featured_foods = {
+  "Mood-Boosting Foods":
+    "Leafy greens, berries, and nuts are rich in vitamins, antioxidants, and healthy fats that help support serotonin and balance mood.",
+
+  "Focus & Memory":
+    "Fatty fish like salmon and sardines, walnuts, flaxseeds, and dark chocolate provide omega-3s and flavonoids that sharpen focus and memory.",
+
+  "Stress & Anxiety-Calming":
+    "Green tea, chamomile, pumpkin seeds, and magnesium-rich spinach can ease stress and calm the nervous system.",
+
+  "Sleep-Supporting":
+    "Kiwi, tart cherries, warm milk or yogurt, oats, and almonds contain melatonin, tryptophan, and minerals that promote restful sleep.",
+
+  "Gut-Brain Support":
+    "Yogurt with live cultures, kefir, sauerkraut, kimchi, and miso supply probiotics that strengthen gut health and support the brain–gut connection.",
+
+  "Steady Energy (No Crashes)":
+    "Oats, quinoa, sweet potatoes, lentils, and chickpeas release energy slowly, keeping blood sugar stable and energy steady.",
+
+  "Anti-Inflammatory":
+    "Turmeric with black pepper, olive oil, tomatoes, and berries are powerful anti-inflammatory foods that protect cells and reduce chronic inflammation.",
+
+  "Hydration & Electrolytes":
+    "Water, coconut water, oranges, and bananas restore hydration and electrolytes to keep the body balanced and energized."
+};
 
   return (
     <div>
@@ -117,7 +127,7 @@ const Home = () => {
       </section>
 
       {/* Featured Foods */}
-      <section className="py-5">
+      <section id="FF_id" className="py-5">
         <div className="container text-start">
           <div className={`${HomeStyles.sectionHeading} mb-4`}>
             <h2>Featured Foods for Mental Health</h2>
@@ -152,7 +162,7 @@ const Home = () => {
       </section>
 
       {/* Community */}
-      <section className="py-5">
+      <section  className="py-5">
         <div className="container text-start">
           <div className={`${HomeStyles.sectionHeading} mb-4`}>
             <h2>Join Our Community</h2>
@@ -161,7 +171,7 @@ const Home = () => {
             Get free recipes, food-mood tips, and guides for a healthier mind.
           </p>
           <a href="#" className={`btn btn-lg mt-auto ${HomeStyles.exploreBtn}`}>
-            Subscribe Now
+            Join Now
           </a>
         </div>
       </section>
