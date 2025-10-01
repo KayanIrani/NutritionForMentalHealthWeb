@@ -3,7 +3,7 @@ import HomeStyles from "./css/HomeStyles.module.css";
 
 const Home = () => {
   const sentences = [
-    "Improve Mood - Nutrients like omega-3s, B vitamins, and magnesium play a key role in reducing anxiety and depression.",
+    "Improve Mood - Nutrients like omega-3s, B vitamins, and magnesium play a key role in reducing anxiety and depression. ",
     "Boost Brain Function - Proper nutrition sharpens memory, focus, and overall cognitive performance.",
     "Reduce Stress - Stable blood sugar from balanced meals helps regulate mood swings and stress responses.",
     "Support Sleep & Recovery - Foods rich in tryptophan and complex carbs can improve sleep quality, which is vital for mental health.",
@@ -12,14 +12,20 @@ const Home = () => {
 
   const cards = {
     "Better Brain Function":
-      "Omega-3s and antioxidants support memory and focus.",
+      "Omega-3s and antioxidants support memory and focus. Omega-3 fatty acids are promising natural treatments for mood disorders, below is link for a blog by Harvard University",
     "Help produce neurotransmitters":
-      "B Vitamins help reduce fatigue, support energy metabolism in brain cells, and protect against cognitive decline.",
+      "B Vitamins help reduce fatigue, support energy metabolism in brain cells, and protect against cognitive decline. An article by the National Library of Medicine suggests a study",
     "Protect brain cells from oxidative stress":
-      "Antioxidants help slow aging of the brain, improve memory and learning.",
+      "Antioxidants help slow aging of the brain, improve memory and learning. An article with in-depth information, for those interested",
     "Calms the nervous system":
-      "Magnesium helps reduces stress and anxiety, supports learning and memory",
+      "Magnesium helps reduces stress and anxiety, supports learning and memory. Health Direct, an australian health advice service has a blog which can be of use to our readers",
   };
+  const buttonName = {
+    "Better Brain Function": ["Link to Blog","https://www.health.harvard.edu/blog/omega-3-fatty-acids-for-mood-disorders-2018080314414"],
+    "Help produce neurotransmitters": ["Link to Article","https://pmc.ncbi.nlm.nih.gov/articles/PMC4772032/"],
+    "Protect brain cells from oxidative stress":["Link to Article","https://pmc.ncbi.nlm.nih.gov/articles/PMC9778814/"],
+    "Calms the nervous system":["Link to Blog","https://www.healthdirect.gov.au/blog/can-magnesium-help-to-reduce-anxiety"],   
+  }
 
   const featured_foods = {
     "Mood-Boosting Foods":
@@ -114,16 +120,16 @@ const Home = () => {
             {Object.entries(cards).map(([key, value], index) => (
               <div key={index} className="col-md-3">
                 <div className={`card text-center ${HomeStyles.card}`}>
-                  <div className="card-body d-flex flex-column">
+                  <div className="card-body d-flex flex-column ">
                     <h5 className="card-title mb-3">
                       <b>{key}</b>
                     </h5>
                     <p className="card-text flex-grow-1">{value}</p>
                     <a
-                      href="#"
+                      href={buttonName[key][1]} target="_blank"
                       className={`btn btn-lg mt-auto ${HomeStyles.exploreBtn}`}
                     >
-                      Go Somewhere
+                      {buttonName[key][0]}
                     </a>
                   </div>
                 </div>
@@ -132,6 +138,28 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <section className="py-5">
+  <div className="container text-start">
+    <div className={`${HomeStyles.sectionHeading} mb-4`}>
+      <h2>Chatbot</h2>
+    </div>
+    <p>
+      Meet our intelligent chatbot, strictly trained on expert resources to
+      support your mental health journey. Whether you need quick answers,
+      thoughtful guidance, or just someone to chat with, it's always here
+      to help you in a safe and supportive way. 💬{" "}
+      <i>Ready to start the conversation?</i>
+    </p>
+    <a
+      href="/chat"
+      className={`btn btn-lg mt-auto ${HomeStyles.exploreBtn}`}
+    >
+      Chat With Us
+    </a>
+  </div>
+</section>
+
 
       {/* Featured Foods */}
       <section id="FF_id" className="py-5">
@@ -187,6 +215,8 @@ const Home = () => {
           </a>
         </div>
       </section>
+
+      
 
       {/* Community */}
       <section className="py-5">
